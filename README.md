@@ -32,19 +32,33 @@ The system follows a layered data platform architecture.
 
 
 GitHub Archive Dataset
+
 ↓
+
 Python Ingestion Pipeline
+
 ↓
+
 PostgreSQL Raw Storage
+
 ↓
+
 dbt Transformation Layer
+
 ↓
+
 Analytics Layer (fact & dimension tables)
+
 ↓
+
 Governance Engine (rules, incidents, health scoring)
+
 ↓
+
 AI Explanation Layer
+
 ↓
+
 Power BI Monitoring Dashboard
 
 
