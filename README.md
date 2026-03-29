@@ -1,27 +1,28 @@
 # AI Data Governance Platform
 
-An end-to-end **data governance and data quality monitoring platform** built using PostgreSQL, dbt, Python, and Power BI.
+**Analytics Reliability System for Monitoring Data Quality, Detecting Incidents, and Explaining Failures**
 
-The system ingests GitHub Archive events, models analytics datasets using dbt, executes automated data quality rules, detects governance incidents, calculates dataset health scores, and surfaces governance insights through a monitoring dashboard with AI-assisted explanations.
+An end-to-end data governance platform built using PostgreSQL, dbt, Python, and Power BI.
+This system enables analytics teams to proactively monitor dataset health, detect failures, and understand root causes using AI-assisted explanations.
 
 ---
 
 # Business Problem
 
-Modern analytics platforms rely on many pipelines and datasets.  
+Modern data stacks rely on multiple pipelines and derived datasets.
 Without governance controls, data quality issues can silently propagate and break downstream dashboards, ML models, and decision-making.
 
-This project demonstrates how analytics teams can implement a **data governance layer** that:
+When data quality breaks:
 
-- monitors dataset quality
-- executes automated rule checks
-- tracks incidents and failures
-- calculates dataset health
-- explains issues using AI
+Dashboards show incorrect metrics
+ML models degrade silently
+Stakeholders lose trust
+
+Most teams detect issues after damage is done.
 
 ---
 
-# Architecture
+# System Architecture
 
 The system follows a layered data platform architecture.
 
@@ -52,11 +53,11 @@ Power BI Monitoring Dashboard
 # Core Features
 
 ### Data Ingestion
-Python pipeline ingests GitHub Archive event data into PostgreSQL.
+- Python pipeline ingests GitHub Archive events into PostgreSQL
+- Handles large-scale event data for analytics processing
 
-### Analytics Modeling
-dbt transforms raw events into structured analytics tables:
-
+### Analytics Modeling (dbt)
+Structured transformation layer with fact and dimension models:
 - `fact_commits`
 - `fact_pull_requests`
 - `fact_issues`
@@ -65,9 +66,9 @@ dbt transforms raw events into structured analytics tables:
 - `dim_date`
 
 ### Governance Metadata Layer
-Tracks datasets and quality rules.
+Central system to track datasets, rules, and incidents.
 
-Tables:
+Core Tables:
 
 - `dataset_registry`
 - `rule_catalog`
@@ -76,36 +77,50 @@ Tables:
 - `incidents`
 
 ### Automated Rule Engine
-A Python rule runner executes governance rules and logs failures.
+Python-based rule execution framework:
+
+- Runs data quality checks across datasets
+- Logs rule outcomes and failures
+- Enables scalable rule definitions
 
 Example rules include:
 
-- duplicate commit detection
-- null commit checks
-- foreign key validation
-- duplicate issue detection
+- Duplicate commit detection
+- Null commit checks
+- Foreign key validation
+- Duplicate issue detection
 
 ### Dataset Health Scoring
-Dataset health is computed based on rule failures:
-
+Each dataset is assigned a reliability score:
 
 health_score = 1 - (failed_rules / total_rules)
 
+Enables quick identification of unstable datasets.
 
 ### Incident Detection
-Failed rules automatically generate governance incidents.
+
+- Rule failures automatically generate incidents
+- Tracks severity, status, and timestamps
+- Provides structured monitoring of data issues
+Example:
+
+incident_id | rule_id | severity | status | opened_at
+
 
 ### AI Incident Explanation
-AI scripts generate explanations for rule failures to help teams understand data quality issues faster.
+
+- Uses LLM-based scripts to explain data quality failures
+- Converts technical errors into interpretable insights
+- Reduces debugging time for analysts and engineers
 
 ### Governance Monitoring Dashboard
 Power BI dashboard visualizes:
 
-- dataset health
-- rule failures
-- governance incidents
-- reliability metrics
-![Dashboard](dashboard/Dashboard.jpg)
+
+- Dataset health trends
+- Rule failure patterns
+- Active governance incidents
+- System reliability metrics
 
 
 ---
@@ -121,6 +136,8 @@ Power BI dashboard visualizes:
 | Governance Engine | Python + SQL |
 | AI Layer | OpenAI API |
 | Monitoring | Power BI |
+
+
 
 ---
 
@@ -186,18 +203,29 @@ This enables teams to track governance issues and prioritize fixes.
 
 ---
 
+# Why This Project Matters
+
+This project shifts governance from manual debugging → automated monitoring.
+
+It demonstrates how analytics teams can:
+
+- Treat datasets as production systems
+- Detect failures early
+- Quantify data reliability
+- Improve trust in analytics outputs
+
 # Future Improvements
 
 Potential enhancements:
 
-- orchestration with Airflow or Dagster
-- real-time anomaly detection
-- Slack alerts for governance incidents
-- integration with data catalogs
+- Workflow orchestration (Airflow / Dagster)
+- Real-time anomaly detection
+- Alerting system (Slack / email)
+- Integration with data catalogs
 - RAG-based governance assistant
 
 ---
 
 # License
 
-This project is intended for educational and portfolio purposes.
+For portfolio and educational use.
