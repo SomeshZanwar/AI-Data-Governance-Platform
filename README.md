@@ -228,6 +228,22 @@ It demonstrates how analytics teams can:
 - Quantify data reliability
 - Improve trust in analytics outputs
 
+## Extended Work: Agent Governance Layer
+
+This platform focuses on making data trustworthy, validating quality, 
+tracking metadata, and building governance-ready reporting layers.
+
+A natural next question is: what happens when an AI agent tries to act on that data? An agent might have full permission to query a dataset, 
+but the dataset failed freshness checks that morning. The policy engine says allowed. The data quality system says do not trust this.
+Without a shared decision point, the agent proceeds anyway.
+
+I built a follow-on prototype that connects both layers:
+
+→ [Data Quality-Aware Agent Governance](https://github.com/SomeshZanwar/data-quality-aware-agent-governance)
+
+It combines Microsoft's Agent Governance Toolkit with the kind of data quality signals this platform produces, so agent actions are blocked when the underlying data is untrustworthy, not only when the agent 
+lacks permission.
+
 # Future Improvements
 
 Potential enhancements:
