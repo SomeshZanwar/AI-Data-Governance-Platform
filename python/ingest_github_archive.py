@@ -1,16 +1,20 @@
 import json
+import os
 from pathlib import Path
 import psycopg2
 from psycopg2.extras import Json, execute_batch
+from dotenv import load_dotenv
+
+load_dotenv()
 
 DATA_DIR = Path("data_raw/github_archive")
 
 DB_CONFIG = {
-    "host": "localhost",
-    "port": 5432,
-    "dbname": "ai_data_governance_platform",
-    "user": "postgres",
-    "password": "Somesh@2701"
+    "host": os.getenv("DB_HOST", "localhost"),
+    "port": os.getenv("DB_PORT", "5432"),
+    "dbname": os.getenv("DB_NAME", "governance"),
+    "user": os.getenv("DB_USER", "postgres"),
+    "password": os.getenv("DB_PASSWORD", "")
 }
 
 BATCH_SIZE = 5000

@@ -1,13 +1,24 @@
 from fastapi import FastAPI
 import psycopg2
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="AI Data Governance API")
 
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_NAME = os.getenv("DB_NAME", "governance")
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "")
+
 conn = psycopg2.connect(
-    host="localhost",
-    dbname="ai_data_governance_platform",
-    user="postgres",
-    password="YOUR_PASSWORD"
+    host=DB_HOST,
+    port=DB_PORT,
+    dbname=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD
 )
 
 @app.get("/datasets")
