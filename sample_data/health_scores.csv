@@ -1,0 +1,7 @@
+dataset_id,dataset_name,health_score,total_runs,passed_runs,failed_runs
+DS001,sales_metrics,0.95,21,20,1
+DS002,user_events,0.81,21,17,4
+DS003,inventory_data,1.0,7,7,0
+DS004,experiment_results,1.0,7,7,0
+DS005,customer_profiles,1.0,14,14,0
+DS006,pipeline_log,1.0,7,7,0

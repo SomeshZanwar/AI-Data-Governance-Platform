@@ -1,0 +1,4 @@
+incident_id,dataset_id,rule_id,detected_at,status,severity,title,explanation
+INC001,DS002,R004,2026-05-08 12:26:43.362190,OPEN,critical,Null user_id values detected in user_events,The null_check_user_id rule failed. Approximately 5% of rows have null user_id values. This breaks downstream attribution models and experiment analysis pipelines. Immediate investigation required.
+INC002,DS002,R006,2026-05-08 14:26:43.362190,OPEN,critical,Schema validation failure in user_events,Schema validation failed — the 'session_id' column type changed from VARCHAR to INTEGER. This is a breaking change affecting 3 downstream dbt models. Rollback or schema migration needed.
+INC003,DS001,R002,2026-05-05 04:26:43.362190,RESOLVED,high,Revenue null rate spike in sales_metrics (resolved),"Revenue null rate reached 2.3% on Jan 22, caused by a pipeline ingestion gap during a scheduled maintenance window. Pipeline restarted at 14:30 UTC and backfill completed. Resolved."

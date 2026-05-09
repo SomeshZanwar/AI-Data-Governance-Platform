@@ -1,0 +1,7 @@
+dataset_id,name,owner,tier,tags,created_at
+DS001,sales_metrics,analytics-team,Gold,"revenue,finance",2025-11-10 06:26:43.362190
+DS002,user_events,data-engineering,Silver,"users,behavior",2026-02-08 06:26:43.362190
+DS003,inventory_data,ops-team,Silver,"ops,inventory",2026-03-10 06:26:43.362190
+DS004,experiment_results,product-team,Bronze,"experiments,product",2026-04-09 06:26:43.362190
+DS005,customer_profiles,marketing-team,Gold,"customers,PII",2026-01-09 06:26:43.362190
+DS006,pipeline_log,data-engineering,Bronze,"ops,logs",2026-04-25 06:26:43.362190

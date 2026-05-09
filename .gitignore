@@ -11,3 +11,6 @@ target/
 
 .DS_Store
 Thumbs.db
+
+# Allow sample data CSVs for demo
+!sample_data/*.csv

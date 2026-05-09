@@ -1,0 +1,12 @@
+rule_id,dataset_id,rule_name,rule_type,threshold,severity
+R001,DS001,row_count_check,completeness,10000.0,critical
+R002,DS001,null_check_revenue,validity,0.01,high
+R003,DS001,freshness_check,timeliness,24.0,high
+R004,DS002,null_check_user_id,validity,0.0,critical
+R005,DS002,duplicate_user_check,uniqueness,0.01,medium
+R006,DS002,schema_validation,conformity,0.0,critical
+R007,DS003,row_count_check,completeness,500.0,medium
+R008,DS004,experiment_id_check,validity,0.0,high
+R009,DS005,pii_mask_check,security,0.0,critical
+R010,DS005,freshness_check,timeliness,48.0,high
+R011,DS006,log_completeness,completeness,100.0,low
