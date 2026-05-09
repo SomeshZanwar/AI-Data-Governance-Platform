@@ -7,6 +7,11 @@ This system enables analytics teams to proactively monitor dataset health, detec
 
 ---
 
+## Live Demo
+**[→ AI Data Reliability Control Center](https://data-reliability-control-center.streamlit.app/)**
+
+No setup needed. Choose an agent, action, and dataset to see whether access is allowed or blocked.
+
 # Business Problem
 
 Modern data stacks rely on multiple pipelines and derived datasets.
